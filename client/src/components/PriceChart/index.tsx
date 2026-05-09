@@ -275,6 +275,7 @@ export function PriceChart() {
                   color: isUp ? "success.main" : "error.main",
                   fontVariantNumeric: "tabular-nums",
                   lineHeight: 1,
+                  fontSize: { xs: '1.5rem', sm: '2rem', md: '3rem' },
                 }}
               >
                 {formatPriceFull(liveState.price)}
@@ -308,7 +309,7 @@ export function PriceChart() {
               Candle
             </ToggleButton>
           </ToggleButtonGroup>
-          <Typography variant="caption" color="text.disabled">
+          <Typography variant="caption" color="text.disabled" sx={{ display: { xs: 'none', sm: 'block' } }}>
             {points.length} pts
           </Typography>
         </StyledControls>

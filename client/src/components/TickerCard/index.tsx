@@ -30,7 +30,7 @@ export const TickerCard = memo(
     const color = isUp ? "success" : "error";
 
     return (
-      <StyledCard selected={selected} onClick={onClick}>
+      <StyledCard selected={selected} loading={loading} onClick={onClick}>
         <StyledCardTop>
           <StyledSymbolRow>
             <Typography

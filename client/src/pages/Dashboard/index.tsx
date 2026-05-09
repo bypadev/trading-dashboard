@@ -39,7 +39,7 @@ export function DashboardPage() {
           <StyledLogoBox>
             <StyledLogoText>MB</StyledLogoText>
           </StyledLogoBox>
-          <Typography variant="h6" fontWeight={800} letterSpacing={-0.5}>
+          <Typography variant="h6" fontWeight={800} letterSpacing={-0.5} sx={{ display: { xs: 'none', sm: 'block' } }}>
             Trading Dashboard
           </Typography>
         </StyledHeaderContainer>
@@ -54,7 +54,7 @@ export function DashboardPage() {
             size="small"
             variant="outlined"
           />
-          <Typography variant="caption" color="text.secondary">
+          <Typography variant="caption" color="text.secondary" sx={{ display: { xs: 'none', sm: 'block' } }}>
             {username}
           </Typography>
           <Button size="small" color="inherit" onClick={() => void logout()} sx={{ opacity: 0.6 }}>
@@ -65,12 +65,12 @@ export function DashboardPage() {
 
       <StyledContent>
         <Grid container spacing={2} sx={{ height: "100%" }}>
-          <Grid item xs={12} md={3} lg={2.5} sx={{ height: "100%" }}>
+          <Grid item xs={12} md={3} lg={2.5} sx={{ height: { xs: 'auto', md: '100%' } }}>
             <StyledPanelPaper>
               <TickerList />
             </StyledPanelPaper>
           </Grid>
-          <Grid item xs={12} md={9} lg={9.5} sx={{ height: "100%" }}>
+          <Grid item xs={12} md={9} lg={9.5} sx={{ height: { xs: 'auto', md: '100%' } }}>
             <StyledPanelPaper>
               <PriceChart />
             </StyledPanelPaper>

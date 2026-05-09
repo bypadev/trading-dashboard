@@ -12,6 +12,8 @@ const StyledHeader = styled(Box)(({ theme }) => ({
   alignItems: "flex-start",
   justifyContent: "space-between",
   marginBottom: theme.spacing(3),
+  flexWrap: "wrap",
+  gap: theme.spacing(1),
 }));
 
 const StyledPriceRow = styled(Box)(({ theme }) => ({
@@ -26,6 +28,12 @@ const StyledControls = styled(Box)(({ theme }) => ({
   flexDirection: "column",
   alignItems: "flex-end",
   gap: theme.spacing(1),
+  [theme.breakpoints.down('sm')]: {
+    flexDirection: "row",
+    alignItems: "center",
+    width: "100%",
+    justifyContent: "flex-start",
+  },
 }));
 
 const StyledChartPaper = styled(Paper)(({ theme }) => ({
@@ -34,13 +42,20 @@ const StyledChartPaper = styled(Paper)(({ theme }) => ({
   minHeight: 280,
   backgroundColor: theme.palette.background.default,
   border: `1px solid ${theme.palette.divider}`,
+  [theme.breakpoints.down('md')]: {
+    flex: 'unset',
+    minHeight: 'unset',
+  },
 }));
 
-const StyledChartBox = styled(Box)({
+const StyledChartBox = styled(Box)(({ theme }) => ({
   position: "relative",
   width: "100%",
   height: "100%",
-});
+  [theme.breakpoints.down('md')]: {
+    height: 300,
+  },
+}));
 
 const StyledEmptyState = styled(Box)({
   height: "100%",

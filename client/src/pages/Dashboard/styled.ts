@@ -13,8 +13,10 @@ const StyledPage = styled(Box)(({ theme }) => ({
   flexDirection: 'column',
   overflow: 'hidden',
   backgroundColor: theme.palette.background.default,
-  [theme.breakpoints.down('sm')]: {
+  [theme.breakpoints.down('md')]: {
     height: 'auto',
+    minHeight: '100vh',
+    overflow: 'visible',
   },
 }));
 
@@ -26,6 +28,11 @@ const StyledHeader = styled(Box)(({ theme }) => ({
   borderBottom: `1px solid ${theme.palette.divider}`,
   backgroundColor: theme.palette.background.paper,
   flexShrink: 0,
+  flexWrap: 'wrap',
+  gap: theme.spacing(1),
+  [theme.breakpoints.down('sm')]: {
+    padding: theme.spacing(1, 2),
+  },
 }));
 
 const StyledHeaderContainer = styled(Box)({
@@ -50,19 +57,28 @@ const StyledLogoText = styled(Typography)({
   color: theme.palette.common.white,
 });
 
-const StyledContent = styled(Box)({
+const StyledContent = styled(Box)(({ theme }) => ({
   flex: 1,
   overflow: 'hidden',
   padding: theme.spacing(2),
-});
+  [theme.breakpoints.down('md')]: {
+    overflow: 'visible',
+    flex: 'unset',
+  },
+}));
 
-const StyledPanelPaper = styled(Paper)({
+const StyledPanelPaper = styled(Paper)(({ theme }) => ({
   height: '100%',
   padding: theme.spacing(2),
   overflow: 'hidden',
   display: 'flex',
   flexDirection: 'column',
-});
+  [theme.breakpoints.down('md')]: {
+    height: 'auto',
+    overflow: 'visible',
+    minHeight: 240,
+  },
+}));
 const StyledLiveDotIcon = styled(FiberManualRecordIcon, {
   shouldForwardProp: (prop) => prop !== 'active',
 })<{ active?: boolean }>(({ active }) => ({
