@@ -3,11 +3,7 @@ import { Typography } from "@mui/material";
 
 import type { PriceAlert, TickerState } from "@/types";
 
-import {
-  StyledCard,
-  StyledCardTop,
-  StyledSymbolRow,
-} from "./styled";
+import { StyledCard, StyledCardTop, StyledSymbolRow } from "./styled";
 
 import { ChangeChip } from "./components/ChangeChip";
 import { PriceRow } from "./components/PriceRow";
@@ -26,11 +22,15 @@ interface Props {
 export const TickerCard = memo(
   ({ symbol, state, selected, loading, alert, onClick }: Props) => {
     const isUp = state ? state.changePercent >= 0 : true;
-
+    const isClickable = !loading && Boolean(state);
     const color = isUp ? "success" : "error";
 
     return (
-      <StyledCard selected={selected} loading={loading} onClick={onClick}>
+      <StyledCard
+        selected={selected}
+        loading={loading}
+        onClick={isClickable ? onClick : undefined}
+      >
         <StyledCardTop>
           <StyledSymbolRow>
             <Typography
@@ -41,9 +41,7 @@ export const TickerCard = memo(
               {symbol}
             </Typography>
 
-            <AlertIndicator
-              visible={Boolean(alert && !alert.triggered)}
-            />
+            <AlertIndicator visible={Boolean(alert && !alert.triggered)} />
           </StyledSymbolRow>
 
           <ChangeChip
@@ -54,22 +52,12 @@ export const TickerCard = memo(
           />
         </StyledCardTop>
 
-        <PriceRow
-          state={state}
-          loading={loading}
-          isUp={isUp}
-          color={color}
-        />
+        <PriceRow state={state} loading={loading} isUp={isUp} color={color} />
 
-        <ChangeRow
-          state={state}
-          loading={loading}
-          isUp={isUp}
-          color={color}
-        />
+        <ChangeRow state={state} loading={loading} isUp={isUp} color={color} />
       </StyledCard>
     );
-  }
+  },
 );
 
 TickerCard.displayName = "TickerCard";
