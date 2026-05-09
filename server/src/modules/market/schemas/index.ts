@@ -1,10 +1,5 @@
 import { z } from 'zod';
 
-export const PricePointSchema = z.object({
-  price: z.number().positive(),
-  timestamp: z.number().int().positive(),
-});
-
 export const TickerParamSchema = z.object({
   ticker: z.string().min(1).max(20).transform((v) => v.toUpperCase()),
 });
@@ -20,4 +15,3 @@ export const WsIncomingSchema = z.discriminatedUnion('type', [
   }),
 ]);
 
-export type WsIncoming = z.infer<typeof WsIncomingSchema>;

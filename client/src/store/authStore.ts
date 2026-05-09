@@ -37,7 +37,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
       await fetch(`${API_URL}/auth/logout`, {
         method: 'POST',
         headers: { Authorization: `Bearer ${token}` },
-      }).catch(() => {});
+      }).catch((err) => console.error('Logout request failed:', err));
     }
     sessionStorage.removeItem('token');
     sessionStorage.removeItem('username');
