@@ -9,7 +9,12 @@ import { loggerOptions } from './shared/logger';
 export async function buildApp() {
   const app = fastify({ logger: loggerOptions });
 
-  await app.register(cors, { origin: true });
+  await app.register(cors, {
+    origin: true,
+    credentials: true,
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    methods: ['GET', 'POST', 'OPTIONS'],
+  });
 
   await app.register(swagger, {
     openapi: {
