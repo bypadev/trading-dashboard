@@ -7,6 +7,22 @@ A full-stack real-time trading dashboard that streams live price updates via Web
 ![Fastify](https://img.shields.io/badge/Fastify-4-black)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
+**Live demo:** [mb-trading-dashboard.vercel.app](https://mb-trading-dashboard.vercel.app)
+
+| Service   | URL                                                          |
+|-----------|--------------------------------------------------------------|
+| Client    | https://mb-trading-dashboard.vercel.app                      |
+| REST API  | https://mb-trading-dashboard.up.railway.app/api              |
+| Swagger   | https://mb-trading-dashboard.up.railway.app/docs             |
+| WebSocket | wss://mb-trading-dashboard.up.railway.app/ws                 |
+
+**Demo credentials:**
+
+| Username | Password    |
+|----------|-------------|
+| admin    | password123 |
+| trader   | trading456  |
+
 ---
 
 ## Quick Start
@@ -123,7 +139,7 @@ trading/
 | GET    | `/api/tickers/:ticker`   | Current price + change for ticker  |
 | GET    | `/api/history/:ticker`   | Last 100 price points              |
 
-Full OpenAPI docs at `http://localhost:3001/docs`.
+Full OpenAPI docs — local: `http://localhost:3001/docs` · live: https://mb-trading-dashboard.up.railway.app/docs
 
 ---
 
